@@ -1085,8 +1085,12 @@ class BinanceSocketManager:
         :returns: connection key string if successful, False otherwise
 
         Message Format - see Binance API docs for all types
+        
         """
-        return self._get_account_socket('futures', stream_url=self.FSTREAM_URL)
+        stream_url = self.DSTREAM_URL
+        if self.testnet:
+            stream_url = self.DSTREAM_TESTNET_URL
+        return self._get_account_socket('futures', stream_url=stream_url)
 
     def coin_futures_socket(self):
         """Start a websocket for coin futures data
