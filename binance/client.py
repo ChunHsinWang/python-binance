@@ -8281,6 +8281,13 @@ class AsyncClient(BaseClient):
             'listenKey': listenKey
         }
         return await self._request_futures_api('delete', 'listenKey', signed=False, data=params)
+    
+    async def futures_get_trade_fee(self, symbol):
+        params = {
+            'symbol': symbol
+        }
+        return await self._request_futures_api('get', 'commissionRate', signed=True, data=params)
+    
 
     # COIN Futures API
 
