@@ -1087,9 +1087,9 @@ class BinanceSocketManager:
         Message Format - see Binance API docs for all types
         
         """
-        stream_url = self.DSTREAM_URL
+        stream_url = self.FSTREAM_URL
         if self.testnet:
-            stream_url = self.DSTREAM_TESTNET_URL
+            stream_url = self.FSTREAM_TESTNET_URL
         return self._get_account_socket('futures', stream_url=stream_url)
 
     def coin_futures_socket(self):
